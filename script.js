@@ -1,6 +1,17 @@
-const el = document.getElementById('data');
-if(el){
-    const d = new Date();
-    const pad = n => String(n).padStart(2,'0');
-    el.textContent = `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}`;
+window.addEventListener('load', getData);
+
+async function getData() {
+    try{
+        const resposta = await fetch(`https://api.github.com/repos/GuiMV/Games`);
+        const dados = await resposta.json();
+
+        const dataAtualizacao = new Date(dados.pushed_at);
+        const dia = dataAtualizacao.getDate();
+        const mes = dataAtualizacao.getMonth() + 1;
+        const ano = dataAtualizacao.getFullYear();
+
+        document.getElementById('data').innerText = `${dia}/${mes}/${ano}`;
+    } catch (erro) {
+        console.error("Erro ao obter a data da última atualização:", erro);
+    }
 }
