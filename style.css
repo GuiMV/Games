@@ -42,6 +42,21 @@ header{
     justify-content:space-between;
     gap:16px}
 
+.BV{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: auto;
+}
+
+.BV img {
+    width: 100%;
+    height: auto;
+}
+
 .brand{
     display:flex;
     align-items:center;
@@ -182,11 +197,6 @@ section{
 
 footer{
     padding:24px 0;color:var(--muted);border-top:1px solid rgba(124,156,255,.12);margin-top:32px}
-
-.BV{
-    display: flex;
-    justify-content: center;
-}
 
 @media (max-width:900px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} }
 @media (max-width:640px){ .menu{display:none} .grid{grid-template-columns:1fr} }
